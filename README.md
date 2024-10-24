@@ -14,9 +14,18 @@ The Project Management API is a RESTful API built with Django and Django REST Fr
 - Swagger UI documentation for easy API exploration
 
 ### Clone the Repository
-```bash
+
 git clone https://github.com/DeeptiShuklaProject/Project-Management-API.git
 cd project-management-api
+
+### Set Up the Django Project
+django-admin startproject project_management
+cd project_management
+python manage.py startapp api
+
+
+
+
 
 
 ### Prerequisites
@@ -32,9 +41,14 @@ cd project-management-api
 - **Authentication**: JWT (JSON Web Tokens)
 
 ## Installation
-pip install -r requirements.txt
-Or
+pip install djangorestframework djangorestframework-simplejwt
 pip install drf-yasg
+
+or
+
+pip install -r requirements.txt
+
+
 
 ## Migrate the Database
 python manage.py makemigrations api 
@@ -53,6 +67,33 @@ Login User: http://127.0.0.1:8000/api/users/login/ (POST)
 List Projects: http://127.0.0.1:8000/api/projects/ (GET)
 Create Task: http://127.0.0.1:8000/api/projects/{project_id}/tasks/ (POST)
 
+Users
+Register User: POST /api/users/register/
+Login User: POST /api/users/login/
+Get User Details: GET /api/users/{id}/
+Update User: PUT/PATCH /api/users/{id}/
+Delete User: DELETE /api/users/{id}/
+
+Projects
+List Projects: GET /api/projects/
+Create Project: POST /api/projects/
+Retrieve Project: GET /api/projects/{id}/
+Update Project: PUT/PATCH /api/projects/{id}/
+Delete Project: DELETE /api/projects/{id}/
+
+Tasks
+List Tasks: GET /api/projects/{project_id}/tasks/
+Create Task: POST /api/projects/{project_id}/tasks/
+Retrieve Task: GET /api/tasks/{id}/
+Update Task: PUT/PATCH /api/tasks/{id}/
+Delete Task: DELETE /api/tasks/{id}/
+
+Comments
+List Comments: GET /api/tasks/{task_id}/comments/
+Create Comment: POST /api/tasks/{task_id}/comments/
+Retrieve Comment: GET /api/comments/{id}/
+Update Comment: PUT/PATCH /api/comments/{id}/
+Delete Comment: DELETE /api/comments/{id}/
 
 ## Contribution
 Contributions are welcome! Please create a pull request or open an issue for suggestions or improvements.
